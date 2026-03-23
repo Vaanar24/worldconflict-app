@@ -82,7 +82,3 @@ $badges = @"
 ![TypeScript](https://img.shields.io/badge/typescript-5.0+-blue.svg)
 ![React](https://img.shields.io/badge/react-18.0+-blue.svg)
 ![FastAPI](https://img.shields.io/badge/fastapi-0.104+-green.svg)
-
-"@
-
-"$badges`n$readme" | Out-File -FilePath README.md -Encoding UTF8
