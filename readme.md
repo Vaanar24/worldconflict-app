@@ -1,58 +1,38 @@
-# Create README.md
+# Replace the simple README with a detailed one
 @"
-# 🌍 World Monitor - Real-Time Global Conflict & Disaster Tracker
+# 🌍 World Conflict Monitor
 
-A real-time web application that monitors global conflicts, wars, natural disasters, and critical events worldwide. Built with FastAPI (Python) backend and React (TypeScript) frontend.
+Real-time global conflict and disaster tracking application
 
-## 🚀 Features
+## 🚀 Live Demo
+[Coming soon]
 
-- **Real-time Conflict Tracking**: Monitors active war zones including Ukraine-Russia, Israel-Gaza, Sudan, Myanmar, and more
-- **Live Disaster Alerts**: Earthquake, flood, storm, and wildfire tracking from GDACS
-- **Interactive World Map**: Visualize events with color-coded markers based on severity
-- **Casualty Tracking**: Military and civilian casualty estimates with sources
-- **Filtering & Search**: Filter by conflict type, threat level, region, and time range
-- **Live Statistics**: Active conflicts count, total casualties, and hotspot identification
-- **Responsive Design**: Works on desktop and mobile devices
+## 📋 Overview
+This application provides real-time monitoring of:
+- **Active Conflicts**: Ukraine-Russia, Israel-Gaza, Sudan, Myanmar, and more
+- **Natural Disasters**: Earthquakes, floods, storms, wildfires
+- **Casualty Tracking**: Military and civilian casualties
+- **Geospatial Visualization**: Interactive world map with color-coded markers
 
 ## 🛠️ Tech Stack
+- **Backend**: FastAPI (Python)
+- **Frontend**: React + TypeScript
+- **Maps**: Leaflet
+- **UI**: Material-UI
+- **Data Sources**: GDACS, USGS, custom war collectors
 
-### Backend
-- **FastAPI** - Modern Python web framework
-- **Uvicorn** - ASGI server
-- **Pydantic** - Data validation
-- **AIOHTTP** - Async HTTP client for API calls
-- **GDACS API** - Natural disaster data
-- **Custom War Collectors** - Real-time conflict data
+## 🏃‍♂️ Quick Start
 
-### Frontend
-- **React 18** with TypeScript
-- **Material-UI (MUI)** - Component library
-- **Leaflet** - Interactive maps
-- **Axios** - HTTP client
-- **date-fns** - Date formatting
-
-## 📋 Prerequisites
-
+### Prerequisites
 - Python 3.10+
 - Node.js 18+
-- npm or yarn
-
-## 🔧 Installation
-
-### Clone the repository
-\`\`\`bash
-git clone https://github.com/YOUR_USERNAME/world-monitor.git
-cd world-monitor
-\`\`\`
 
 ### Backend Setup
 \`\`\`bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-cp .env.example .env
-# Add your API keys to .env
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 \`\`\`
 
@@ -64,59 +44,45 @@ npm start
 \`\`\`
 
 ## 🌐 API Endpoints
+- `GET /health` - Health check
+- `GET /api/v1/events` - Get events within bounding box
+- `GET /api/v1/events/stats` - Get event statistics
+- `GET /api/docs` - Interactive API documentation
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/health` | GET | Health check |
-| `/api/v1/events` | GET | Get events within bounding box |
-| `/api/v1/events/stats` | GET | Get event statistics |
-| `/api/docs` | GET | Interactive API documentation |
-
-## 🗺️ Active Conflicts Tracked
-
-- **Ukraine-Russia War**: Multiple front lines (Bakhmut, Avdiivka, Kherson)
-- **Israel-Gaza Conflict**: Gaza Strip, West Bank
-- **Sudan Civil War**: Khartoum, Darfur
-- **Myanmar Civil War**: Kachin State, Shan State
-- **DR Congo Conflict**: North Kivu, Ituri
-- **Ethiopia Conflicts**: Tigray, Amhara
-- **Sahel Region**: Mali, Burkina Faso, Niger
-- **Haiti Gang Violence**: Port-au-Prince
-
-## 📊 Data Sources
-
-- **GDACS** - Natural disasters
-- **USGS** - Earthquakes
-- **Custom War Collectors** - Real-time conflict data
-- **NewsAPI** - Breaking news (optional)
-
-## 🎯 Roadmap
-
-- [ ] User authentication
-- [ ] Custom alerts via email/SMS
-- [ ] Historical data analysis
-- [ ] Mobile app (React Native)
-- [ ] AI-powered threat prediction
-- [ ] Social media integration
+## 📊 Active Conflicts Tracked
+- 🇺🇦 Ukraine-Russia War (multiple front lines)
+- 🇮🇱🇵🇸 Israel-Gaza Conflict
+- 🇸🇩 Sudan Civil War
+- 🇲🇲 Myanmar Civil War
+- 🇨🇩 DR Congo Conflict
+- 🇪🇹 Ethiopia Conflicts
+- 🌍 Sahel Region Conflicts
+- 🇭🇹 Haiti Gang Violence
 
 ## 🤝 Contributing
-
 Contributions are welcome! Please read our contributing guidelines.
 
 ## 📄 License
-
-MIT License - see LICENSE file
+MIT License
 
 ## ⚠️ Disclaimer
-
-This application is for informational purposes only. Casualty estimates are based on available sources and may not be fully accurate. Always verify critical information through official channels.
-
-## 🙏 Acknowledgments
-
-- GDACS for disaster data
-- USGS for earthquake data
-- All open-source contributors
+This application is for informational purposes only. Casualty estimates are based on available sources and may not be fully accurate.
 
 ---
 Made with ❤️ for global awareness
 "@ | Out-File -FilePath README.md -Encoding UTF8
+# Add badges to README
+$readme = Get-Content README.md -Raw
+$badges = @"
+[![GitHub stars](https://img.shields.io/github/stars/Vaanar24/worldconflict-app)](https://github.com/Vaanar24/worldconflict-app/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Vaanar24/worldconflict-app)](https://github.com/Vaanar24/worldconflict-app/network)
+[![GitHub issues](https://img.shields.io/github/issues/Vaanar24/worldconflict-app)](https://github.com/Vaanar24/worldconflict-app/issues)
+[![License](https://img.shields.io/github/license/Vaanar24/worldconflict-app)](https://github.com/Vaanar24/worldconflict-app/blob/main/LICENSE)
+![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
+![TypeScript](https://img.shields.io/badge/typescript-5.0+-blue.svg)
+![React](https://img.shields.io/badge/react-18.0+-blue.svg)
+![FastAPI](https://img.shields.io/badge/fastapi-0.104+-green.svg)
+
+"@
+
+"$badges`n$readme" | Out-File -FilePath README.md -Encoding UTF8
