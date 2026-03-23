@@ -1,0 +1,36 @@
+# Core Framework
+fastapi==0.115.11
+uvicorn[standard]==0.34.0
+pydantic==2.10.6
+pydantic-settings==2.7.1
+
+# Database
+sqlalchemy==2.0.38
+asyncpg==0.30.0
+geoalchemy2==0.15.2
+psycopg2-binary==2.9.10
+
+# Real-time & Streaming
+aiokafka==0.12.0
+confluent-kafka==2.8.0
+python-socketio==5.12.1
+redis==5.2.1
+
+# Data Processing
+pandas==2.2.3
+numpy==2.2.3
+aiohttp==3.11.12
+httpx==0.28.1
+
+# Monitoring & Metrics
+prometheus-client==0.21.1
+opentelemetry-api==1.30.0
+opentelemetry-sdk==1.30.0
+opentelemetry-instrumentation-fastapi==0.51b0
+
+# Utilities
+python-dotenv==1.0.1
+loguru==0.7.3
+alembic==1.15.1
+
+beautifulsoup4
