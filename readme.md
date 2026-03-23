@@ -2,9 +2,6 @@
   <h1>🌍 World Conflict Monitor</h1>
   <p>Real-time global conflict and disaster tracking application</p>
 </div>
-@"
-# 🌍 World Conflict Monitor
-
 Real-time global conflict and disaster tracking application
 
 ## 🚀 Live Demo
