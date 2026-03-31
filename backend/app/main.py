@@ -8,7 +8,7 @@ import asyncio
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from app.api import events
+from app.api import events, cameras, historical
 from app.core.config import get_settings
 from app.services.collector_service import RealTimeCollector
 
@@ -41,6 +41,8 @@ def create_application() -> FastAPI:
     
     app.state.collector = collector
     app.include_router(events.router, prefix=settings.api_prefix)
+    app.include_router(cameras.router, prefix=settings.api_prefix)
+    app.include_router(historical.router, prefix=settings.api_prefix)
     
     @app.get("/health")
     async def health_check():

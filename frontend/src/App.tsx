@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -6,7 +6,10 @@ import Grid from '@mui/material/Grid';
 import WorldMap from './components/WorldMap';
 import EventSidebar from './components/EventSidebar';
 import StatisticsPanel from './components/StatisticsPanel';
+import HistoricalDashboard from './components/HistoricalDashboard';
+import LiveCameraView from './components/LiveCameraView';
 import { EventProvider } from './context/EventContext';
+import { websocketService } from './services/websocket';
 
 const darkTheme = createTheme({
   palette: {
@@ -22,9 +25,24 @@ const darkTheme = createTheme({
       paper: '#132f4c',
     },
   },
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    h5: { fontWeight: 600 },
+    h6: { fontWeight: 600 },
+  },
 });
 
 function App() {
+  useEffect(() => {
+    websocketService.connect();
+    websocketService.onEvent((event) => {
+      console.log('New event received via WebSocket:', event);
+    });
+    return () => {
+      websocketService.disconnect();
+    };
+  }, []);
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
@@ -37,11 +55,13 @@ function App() {
             <Grid item xs={12} md={3} sx={{ height: '100%', overflow: 'auto', bgcolor: 'background.paper' }}>
               <Box sx={{ p: 2 }}>
                 <StatisticsPanel />
+                <HistoricalDashboard />
                 <EventSidebar />
               </Box>
             </Grid>
           </Grid>
         </Box>
+        <LiveCameraView />
       </EventProvider>
     </ThemeProvider>
   );

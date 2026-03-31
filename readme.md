@@ -1,3 +1,8 @@
+<div align="center">
+  <h1>🌍 World Conflict Monitor</h1>
+  <p>Real-time global conflict and disaster tracking application</p>
+</div>
+
 # Replace the simple README with a detailed one
 @"
 # 🌍 World Conflict Monitor
