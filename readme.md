@@ -1,8 +1,3 @@
-<div align="center">
-  <h1>🌍 World Conflict Monitor</h1>
-  <p>Real-time global conflict and disaster tracking application</p>
-</div>
-
 # Replace the simple README with a detailed one
 @"
 # 🌍 World Conflict Monitor
@@ -87,7 +82,3 @@ $badges = @"
 ![TypeScript](https://img.shields.io/badge/typescript-5.0+-blue.svg)
 ![React](https://img.shields.io/badge/react-18.0+-blue.svg)
 ![FastAPI](https://img.shields.io/badge/fastapi-0.104+-green.svg)
-
-"@
-
-"$badges`n$readme" | Out-File -FilePath README.md -Encoding UTF8
